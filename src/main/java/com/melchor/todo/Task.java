@@ -9,23 +9,21 @@ import jakarta.persistence.GenerationType;
 public class Task {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id; 
-    private String task;
+    // Name of task
+    private String name;
+    // Status/details regarding task
+    private String status;
+    // Is this task complete?
     private boolean complete;
 
-    public Task() {}
-
-    public Task(String task) {
-        this.task = task;
-        this.complete = false;
+    public boolean isComplete() {
+        return complete;
     }
 
-    @Override
-    public String toString() {
-    return String.format(
-        "Task[id=%d, task='%s', complete='%b']",
-        id, task, complete);
+    public void setComplete(boolean complete) {
+        this.complete = complete;
     }
 
     public long getId() {
@@ -36,20 +34,20 @@ public class Task {
         this.id = id;
     }
 
-    public String getTask() {
-        return task;
+    public String getName() {
+        return name;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public boolean isComplete() {
-        return complete;
+    public String getStatus() {
+        return status;
     }
 
-    public void setComplete(boolean complete) {
-        this.complete = complete;
+    public void setStatus(String status) {
+        this.status = status;
     }
     
     
